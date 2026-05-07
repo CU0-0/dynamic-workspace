@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.web.member.madel.dto.MemberDto;
-import com.kh.web.member.madel.service.MemberService;
+import com.kh.web.member.model.dto.MemberDto;
+import com.kh.web.member.model.service.MemberService;
 
 @WebServlet("/join.do")
 public class JoinController extends HttpServlet {

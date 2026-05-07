@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.kh.web.member.madel.dto.MemberDto" alias="member" />
+		<typeAlias type="com.kh.web.member.model.dto.MemberDto" alias="member" />
 	</typeAliases>
 	
 	<environments default="development">

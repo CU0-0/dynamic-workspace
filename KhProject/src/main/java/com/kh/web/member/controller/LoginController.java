@@ -7,9 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.kh.web.member.madel.dto.MemberDto;
-import com.kh.web.member.madel.service.MemberService;
+import com.kh.web.member.model.dto.MemberDto;
+import com.kh.web.member.model.service.MemberService;
 
 @WebServlet("/login.do")
 public class LoginController extends HttpServlet {
@@ -39,10 +40,26 @@ public class LoginController extends HttpServlet {
 		// 실패했을 경우 : null값
 		
 		// 5) 걸과값 반환 / 응답화면 지정
+		/*
+		 * session : 모든 JSP와 Servlet에시 값을 꺼내시 쓸 수 있는 저장소
+		 * 			 단, session에 값이 지워지기 전까지
+		 * 			 세션송료시섬 : 브라우저 종료, 서버 종료, 코드로 지움
+		 * 
+		 * request : 해당 request를 포워딩한 응답 JSP에서까지만 쓸 수 있음
+		 * 			 요청부터 응답 까지만 사용이 가능
+		 * 
+		 * 
+		 */
 		
 		if(loginMember != null) {
 			
-			request.setAttribute("userInfo", loginMember);
+//			request.setAttribute("userInfo", loginMember);
+//			// response. sendRedirect("/kh");
+//			request.getRequestDispatcher("/index.jsp")
+//					.forward(request, response);
+			
+			HttpSession session = request.getSession();
+			session. setAttribute("userInfo", loginMember);
 			response. sendRedirect("/kh");
 			
 		} else {
